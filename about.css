@@ -1,0 +1,455 @@
+/* Root Variables */
+:root {
+    --box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --1box-shadow: 0 8px 10px rgba(0, 0, 0, 0.15);
+    --hover-box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3); 
+    --primary-color: #287bff;
+    --secondary-color: #ff39db;
+    --background: #e0f7fa;
+    --background2: #fcd0fe;
+    --text-color2: #56585e; 
+    --text-color: #fff;
+    --tertiary-color: #04ff00;
+  }
+  
+  /* Global styles */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  /* Section styles */
+  section {
+    min-height: 100vh; /* Full viewport height for sections */
+    width: 100%; /* Full width for sections */
+    overflow-x: hidden;
+  }
+  
+  /* About page styles */
+  #about {
+    color: #333; /* Text color for the about section */
+  }
+  
+  .about-content {
+    padding: 50px 60px; /* Padding around the content */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center; /* Center text within the container */
+  }
+  
+  h2 {
+    font-size: 2.5rem; /* Font size for headings */
+    margin: 40px; /* Space below the heading */
+  }
+  
+  p {
+    font-size: 1.2rem; /* Font size for paragraphs */
+    margin-bottom: 20px; /* Space below the paragraph */
+  }
+  
+  /* My skills section */
+  .about-me {
+    display: flex;
+    justify-content: space-around; /* Space between items */
+    align-items: center;
+    max-width: 100%;
+  }
+  
+  .about-me img {
+    max-width: 40%; /* Limit image width */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 30px; /* Rounded corners */
+    margin: 50px 0 0 0; /* Margin above the image */
+  }
+  
+  .about-me .text {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center; /* Center text */
+  }
+  
+  /* Education and Certifications */
+  .who-iam, .my-journey {
+    margin-top: 50px; /* Space above sections */
+    text-align: left; /* Align text to the left */
+    max-width: 90%; /* Limit maximum width */
+  }
+  
+  .who-iam h3, .my-journey h3 {
+    font-size: 1.5rem; /* Font size for section headings */
+    margin-bottom: 20px; /* Space below headings */
+  }
+  
+  .skills {
+    flex: 1;
+    margin: 20px 10px; /* Margin around skill boxes */
+    background-color: var(--background);
+    width: 100%;
+    background-size: 100% 100% ;/* Add this line */
+    border-radius: 30px;
+  }
+  
+  .skills h2 {
+    font-size: 30px; /* Font size for skills heading */
+    margin: 20px 0; /* Space above and below heading */
+  }
+  
+  .skills .icon-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center; /* Center text */
+    margin: 50px; /* Space below each skill box */
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #f4f4f4; /* Background color */
+    box-shadow: var(--box-shadow); /* Box shadow */
+    transition: box-shadow 0.3s ease; /* Smooth shadow transition */
+    cursor: pointer; /* Pointer cursor on hover */
+    position: relative; /* For positioning pseudo-elements */
+    flex-grow: 1; /* Allow the box to grow */
+  }
+  
+  @property --angle {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+  }
+  
+  .skills .icon-box::after, .skills .icon-box::before {
+    --angle: 0deg;
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    width: 100%;
+    height: 100%;
+    padding: 2px;
+    background-image: conic-gradient(from var(--angle),transparent 70%,  rgb(0, 208, 255));
+    opacity: 0.5; /* Semi-transparent overlay */
+    box-shadow: var(--box-shadow); /* Box shadow for overlay */
+    z-index: -1; /* Place behind content */
+    border-radius: 10px; /* Rounded corners */
+    animation: 3s spin linear infinite; /* Spinning animation */
+  }
+  
+  @keyframes spin {
+    to {
+      --angle: 360deg; /* Complete rotation */
+    }
+    from {
+      --angle: 0deg; /* Starting rotation */
+    }
+  }
+  
+  .skills .icon-box:hover {
+    box-shadow: var(--hover-box-shadow); /* Increased shadow on hover */
+  }
+  
+  .skills .icon-box i {
+    font-size: 2rem; /* Font size for icons */
+    margin-bottom: 10px; /* Space below icons */
+    color: var(--tertiary-color); /* Icon color */
+    animation: rotete 2s linear infinite; /* Rotating animation */
+  }
+  
+  @keyframes rotete {
+    0% {
+      transform: rotate(0deg); /* Starting rotation */
+    }
+    100% {
+      transform: rotate(360deg); /* Complete rotation */
+    }
+  }
+  
+  .skills .icon-box h3 {
+    font-size: 1.2rem; /* Font size for skill box headings */
+    margin-bottom: 10px; /* Space below headings */
+  }
+  
+  .icon-box .btn {
+    font-size: 1rem; /* Font size for buttons */
+    padding: 10px 20px; /* Padding inside buttons */
+    border-radius: 5px; /* Rounded corners */
+    border: 1px solid var(--tertiary-color); /* Button border */
+    background-color: #fff; /* Button background color */
+    color: #333; /* Button text color */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth background color transition */
+  }
+  
+  .icon-box .btn:hover {
+    background-color: var(--tertiary-color); /* Background color on hover */
+    color: #fff; /* Text color on hover */
+  }
+  
+  /* Education and Certifications Section */
+  .education-certifications {
+    padding: 20px; /* Padding around section */
+  }
+  
+  
+  .education-flex {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap */
+    gap: 20px; /* Space between items */
+    justify-content: center; /* Center items horizontally */
+    margin-bottom: 20px; /* Space below section */
+  }
+  
+  .education-box {
+    background-color: #f4f4f4; /* Background color */
+    padding: 20px; /* Padding inside boxes */
+    border: 1px solid #ddd; /* Border color */
+    border-radius: 8px; /* Rounded corners */
+    flex: 1 1 300px; /* Flex-grow and base width */
+    box-sizing: border-box; /* Include padding and border in element’s total width and height */
+    text-align: cener; /* Center text inside boxes */
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    justify-content: center; /* Space between image and text */
+  }
+
+  
+  h3 {
+    font-size: 20px; /* Font size for headings inside boxes */
+    margin: 20px; /* Space below headings */
+  }
+  
+  p i {
+    margin-right: 10px; /* Space between icon and text */
+    color: #008cff; /* Icon color */
+  }
+  
+  .ul {
+    list-style: none; /* Remove default list styling */
+    padding: 0; /* Remove default padding */
+  }
+  
+  .li {
+    display: flex;
+    align-items: center; /* Align items vertically centered */
+    margin-bottom: 20px; /* Space below list items */
+    font-size: 18px; /* Font size for list item text */
+    justify-content: space-between; /* Space between text and image */
+    background-color: var(--background2);
+    border-radius: 30px; /* Rounded corners */
+  }
+  
+  .certificate-info {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+    padding: 20px;
+  }
+  
+  .certificate-image-right {
+    width: 40%; /* Width of images */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 30px; /* Rounded corners */
+    margin: 20px;
+  }
+  
+  .certificate-info a {
+    background-color: transparent; /* Transparent background */
+    color: var(--primary-color); /* Text color */
+    width: fit-content; /* Adjust width to content */
+    border-radius: 30px; /* Rounded corners */
+    border: 2px solid var(--primary-color); /* Border color */
+    text-decoration: none; /* Remove underline */
+    transition: background-color 0.3s ease; /* Smooth background color transition */
+    padding: 9px; /* Padding inside button */
+    margin-top: 10px; /* Space above button */
+    background-color: var(--text-color);
+    transition: all .5s linear;
+    font-size: 16px; /* Font size for button text */
+  }
+  
+  .certificate-info a:hover {
+    border: 2px solid var(--tertiary-color); /* Border color on hover */
+    color: var(--tertiary-color); /* Text color on hover */
+  }
+  
+  img {
+    box-shadow: var(--box-shadow); /* Box shadow for images */
+    transition: all .4s linear; /* Smooth transition for all properties */
+  }
+  
+  .about-content img:hover {
+    box-shadow: var(--hover-box-shadow); /* Increased shadow on hover */
+    transform: scale(1.1); /* Increased scale and moved up on hover */
+  }
+  
+  /* Scroll animations */
+  .scroll-animation {
+    opacity: 0; /* Hidden by default */
+    transform: translateY(20px); /* Slightly moved down */
+    transition: opacity 0.5s, transform 1s; /* Smooth transition for opacity and transform */
+  }
+  
+  .scroll-animation.visible {
+    opacity: 1; /* Visible when class is added */
+    transform: translateY(0); /* Reset transform */
+  }
+  
+  /* Slide-in animations */
+  .slide-in-right, .slide-in-left, .slide-in-up, .slide-in-down {
+    opacity: 0; /* Hidden by default */
+    transition: opacity 0.5s, transform 1s; /* Smooth transition for opacity and transform */
+  }
+  
+  .slide-in-right {
+    transform: translateX(100px); /* Moved to the right */
+  }
+  
+  .slide-in-right.visible {
+    opacity: 1; /* Visible when class is added */
+    transform: translateX(0); /* Reset transform */
+  }
+  
+  .slide-in-left {
+    transform: translateX(-100px); /* Moved to the left */
+  }
+  
+  .slide-in-left.visible {
+    opacity: 1; /* Visible when class is added */
+    transform: translateX(0); /* Reset transform */
+  }
+  
+  .slide-in-up {
+    transform: translateY(-100px); /* Moved up */
+  }
+  
+  .slide-in-up.visible {
+    opacity: 1; /* Visible when class is added */
+    transform: translateY(0); /* Reset transform */
+  }
+  
+  .slide-in-down {
+    transform: translateY(100px); /* Moved down */
+  }
+  
+  .slide-in-down.visible {
+    opacity: 1; /* Visible when class is added */
+    transform: translateY(0); /* Reset transform */
+  }
+  
+  /* Media queries for responsive design */
+  @media (max-width: 1024px) and (min-width: 786px) {
+    .education-flex {
+      flex-direction: row; /* Row layout for larger tablets */
+    }
+  }
+  
+  @media (max-width: 1024px) {
+    .about-content {
+      padding: 40px 50px; /* Adjust padding */
+    }
+    
+    .about-me img {
+      max-width: 40%; /* Limit image width */
+    }
+    
+    .about-me .text {
+      width: 50%; /* Adjust text width */
+    }
+    
+    h2 {
+      font-size: 2rem; /* Font size for headings */
+    }
+    
+    p {
+      font-size: 16px; /* Font size for paragraphs */
+      margin-bottom: 14px; /* Space below paragraphs */
+    }
+  
+    .certificate-info span {
+      font-size: 1rem; /* Font size for certificate info */
+    }
+  }
+  
+  @media (max-width: 786px) {
+    .about-content {
+      padding: 30px 40px; /* Adjust padding */
+    }
+    
+    .about-me {
+      flex-direction: column; /* Column layout for smaller screens */
+    }
+    
+    .about-me img {
+      max-width: 80%; /* Limit image width */
+      margin: 20px;
+    }
+    
+    .about-me .text {
+      width: 100%; /* Full width for text */
+    }
+  
+    .ul {
+      list-style-type: none; /* Remove default list styling */
+      padding: 0; /* Remove default padding */
+      margin: 0; /* Remove default margin */
+    }
+  
+    .certificate-image-right {
+      width: 90%; /* Adjust image width */
+      margin-bottom: 10px; /* Space below image */
+    }
+  
+    .li {
+      display: flex;
+      flex-direction: column-reverse; /* Stack items vertically */
+      align-items: center; /* Center items horizontally */
+      margin-bottom: 20px; /* Space below list items */
+      gap: 20px; /* Space between items */
+    }
+    
+    .certificate-info {
+      flex: 1; /* Allow info to grow */
+    }
+  
+    .certificate-info span {
+      font-size: 1rem; /* Font size for certificate info */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .about-content {
+      padding: 30px 20px; /* Adjust padding */
+    }
+    
+    h2 {
+      font-size: 1.5rem; /* Font size for headings */
+    }
+    
+    p {
+      font-size: 14px; /* Font size for paragraphs */
+      margin-bottom: 10px; /* No space below paragraphs */
+    }
+  
+    .skills .icon-box i {
+      font-size: 1.5rem; /* Font size for icons */
+    }
+  
+    .education-flex {
+      flex-direction: column; /* Column layout for smaller screens */
+      align-items: center; /* Center items horizontally */
+    }
+
+    .certificate-info {
+      max-width: 100%; /* Full width for certificate info */
+    }
+
+  }
+  
